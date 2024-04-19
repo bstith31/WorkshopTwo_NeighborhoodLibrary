@@ -1,5 +1,5 @@
 package com.ps;
-
+///Testing this instead of manually adding this in main, can add additional categories for testing too.
 public class BookManager {
 
     public static Book[] initializeLibrary(){
@@ -14,7 +14,7 @@ public class BookManager {
                 "1111-1111-1123", "1111-1111-1124", "1111-1111-1125", "1111-1111-1126", "1111-1111-1127", "1111-1111-1128",
                 "1111-1111-1129", "1111-1111-1130", "1111-1111-1131"
         };
-        boolean[] checkedOut = new boolean[21]; // All initialized to false by default
+        boolean[] checkedOut = new boolean[21]; // All initialized to false
 
         for (int i = 0; i < brianlibrary.length; i++) {
             brianlibrary[i] = new Book(i, isbns[i], bookTitles[i], checkedOut[i], "None");
