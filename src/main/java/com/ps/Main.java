@@ -40,7 +40,7 @@ public class Main {
 //        brianlibrary[19] = new Book(117, "1111-1111-1130", "Book 20", false, "None");
 //        brianlibrary[20] = new Book(171, "1111-1111-1131", "Book 21", false, "None");
 
-        Map<Integer, String> availableBooks;
+       // Map<Integer, String> availableBooks;
 
         System.out.println("Welcome to Brian's Book Buddies!!! I hope you'll enjoy our selection!");
         System.out.print("What is your name? ");
@@ -61,10 +61,30 @@ public class Main {
                     case 1:
                         validChoice = true;
                         System.out.println("Here is list of our currently available books: ");
+                        boolean booksAvailable = false;
+                        for (Book book : brianLibrary){
+                            if (!book.isCheckedOut()) {
+                                System.out.println(book.getTitle());
+                                booksAvailable = true;
+                            }
+                        }
+                        if (!booksAvailable){
+                            System.out.println("Books all checked out");
+                        }
                         break;
                     case 2:
                         validChoice = true;
                         System.out.println("Here is a list of our currently checked out books: ");
+                        boolean anyCheckOut = false;
+                        for (Book book : brianLibrary){
+                            if (book.isCheckedOut()) {
+                                System.out.println(book.getTitle());
+                                anyCheckOut = true;
+                            }
+                        }
+                        if (!anyCheckOut){
+                            System.out.println("No books are currently checked out.");
+                        }
                         break;
                     case 3:
                         validChoice = true;
