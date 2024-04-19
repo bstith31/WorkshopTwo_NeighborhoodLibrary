@@ -5,8 +5,8 @@ public class Book {
     private int id;
     private String isbn;
     private String title;
-    private boolean CheckedOut = false;
-    private String personCheckOut = "";
+    private boolean CheckedOut;
+    private String personCheckOut;
 
     public Book(int id, String isbn, String title, boolean checkedOut, String personCheckOut) {
         this.id = id;
