@@ -2,8 +2,6 @@ package com.ps;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
@@ -12,6 +10,7 @@ public class Main {
 
         int userInput;
         boolean validChoice = false;
+
 
         Book[] brianLibrary = BookManager.initializeLibrary();
 
@@ -51,7 +50,8 @@ public class Main {
             System.out.print(" 1. Look up available books\n" +
                     " 2. Show checked out books\n" +
                     " 3. Check in a book\n" +
-                    " 4. Exit menu\n" +
+                    " 4. Check out a book\n" +
+                    " 5. Exit menu\n" +
                     " Please enter your choice: ");
 
             try {
@@ -60,37 +60,21 @@ public class Main {
                 switch (userInput) {
                     case 1:
                         validChoice = true;
-                        System.out.println("Here is list of our currently available books: ");
-                        boolean booksAvailable = false;
-                        for (Book book : brianLibrary){
-                            if (!book.isCheckedOut()) {
-                                System.out.println(book.getTitle());
-                                booksAvailable = true;
-                            }
-                        }
-                        if (!booksAvailable){
-                            System.out.println("Books all checked out");
-                        }
+                        MenuManager.displayAvailableBooks(scanner);
                         break;
                     case 2:
                         validChoice = true;
-                        System.out.println("Here is a list of our currently checked out books: ");
-                        boolean anyCheckOut = false;
-                        for (Book book : brianLibrary){
-                            if (book.isCheckedOut()) {
-                                System.out.println(book.getTitle());
-                                anyCheckOut = true;
-                            }
-                        }
-                        if (!anyCheckOut){
-                            System.out.println("No books are currently checked out.");
-                        }
+                        MenuManager.displayCheckedOutBooks(scanner);
                         break;
                     case 3:
                         validChoice = true;
-                        System.out.println("I'm glad one of my favorite books is coming back home!");
+                        MenuManager.checkInBook(scanner);
                         break;
                     case 4:
+                        validChoice = true;
+                        MenuManager.checkOutBook(scanner);
+                        break;
+                    case 5:
                         validChoice = true;
                         break;
                     default:
@@ -102,7 +86,7 @@ public class Main {
             }
         } while (!validChoice) ;
 
-        System.out.println("Thank you so much, " + name + "! Please remember to take care and enjoy your book! " +
+        System.out.println("\n Thank you so much, " + name + "! Please remember to take care and enjoy your book! " +
                 "Please also remember to return it when you're finished with it and come back to checkout a new one! " +
                 "HAPPY READING!!!");
 

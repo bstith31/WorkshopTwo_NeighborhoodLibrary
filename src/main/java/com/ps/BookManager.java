@@ -1,5 +1,7 @@
 package com.ps;
 ///Testing this instead of manually adding this in main, can add additional categories for testing too.
+import java.util.Map;
+import java.util.HashMap;
 public class BookManager {
 
     public static Book[] initializeLibrary(){
@@ -19,6 +21,10 @@ public class BookManager {
         for (int i = 0; i < brianlibrary.length; i++) {
             brianlibrary[i] = new Book(i, isbns[i], bookTitles[i], checkedOut[i], "None");
         }
-        return brianlibrary;
+
+
+            return brianlibrary;
+
     }
+
 }
