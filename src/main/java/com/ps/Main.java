@@ -11,11 +11,8 @@ public class Main {
         int userInput;
         boolean validChoice = false;
 
-
-        Book[] brianLibrary = BookManager.initializeLibrary();
-
-        //Initial Book Array
-        //
+//        Initial Array Generation
+//        Book[] brianLibrary = BookManager.initializeLibrary();
 //        Book[] brianlibrary = new Book[21];
 //        brianlibrary[0] = new Book(0, "1111-1111-1111", "Book 1", false, "None");
 //        brianlibrary[1] = new Book(1, "1111-1111-1112", "Book 2", false, "None");
@@ -52,6 +49,7 @@ public class Main {
                     " 3. Check in a book\n" +
                     " 4. Check out a book\n" +
                     " 5. Exit menu\n" +
+//                    " 6. Check in or out book\n" +
                     " Please enter your choice: ");
 
             try {

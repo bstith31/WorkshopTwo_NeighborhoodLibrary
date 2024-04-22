@@ -36,11 +36,12 @@ public class MenuManager {
         }
     }
 
+    //Option 3 to check in a book
     public static void checkInBook(Scanner scanner) {
 
         System.out.println("Please enter the ID of the book you want to check in: ");
         int bookId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character
+        scanner.nextLine();
         Book[] library = BookManager.initializeLibrary();
         for (Book book : library) {
             if (book.getId() == bookId) {
@@ -57,9 +58,34 @@ public class MenuManager {
         System.out.println("Book not found.");
     }
 
+    //Option 4 to check out a book
     public static void checkOutBook(Scanner scanner) {
 
         System.out.println("Which of my favorite books do you want to take home with you?");
+        System.out.println("Enter ID of the book you want to check out:");
+
+        int bookId = scanner.nextInt();
+        scanner.nextLine();
+        boolean foundBook = false;
+        Book[] library = BookManager.initializeLibrary();
+        for (Book book : library) {
+            if (book.getId() == bookId) {
+                if (!book.isCheckedOut()) {
+                    book.setCheckedOut(true);
+                    book.setPersonCheckOut("User");
+                    System.out.println("Book checked out successfully.");
+                } else {
+                    System.out.println("This book is already checked out.");
+                }
+                foundBook = true;
+                break;
+            }
+        }
+
+        if (!foundBook) {
+            System.out.println("Book not found.");
+        }
+
     }
 
 }
